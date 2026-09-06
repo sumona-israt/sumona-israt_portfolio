@@ -30,6 +30,42 @@ const iconPaths: Record<string, string> = {
   n8n: "M18.601 12a3.6 3.6 0 1 0-3.598 3.6h.043a3.6 3.6 0 0 0 3.555-3.6zM12 4.799a3.6 3.6 0 1 0-3.6 3.6h.042A3.601 3.601 0 0 0 12 4.799zm0 14.402a3.6 3.6 0 1 0-3.6 3.6h.042A3.601 3.601 0 0 0 12 19.201z",
 };
 
+/** Official brand colors, from Simple Icons. */
+const iconColors: Record<string, string> = {
+  python: "#3776AB",
+  c: "#A8B9CC",
+  openjdk: "#000000",
+  pytorch: "#EE4C2C",
+  tensorflow: "#FF6F00",
+  git: "#F03C2E",
+  numpy: "#013243",
+  opencv: "#5C3EE8",
+  scikitlearn: "#F7931E",
+  flask: "#3BABC3",
+  html5: "#E34F26",
+  css: "#663399",
+  claude: "#D97757",
+  n8n: "#EA4B71",
+};
+
+/** Display names for tooltips (may differ from the label used to look the icon up). */
+const iconNames: Record<string, string> = {
+  python: "Python",
+  c: "C",
+  openjdk: "Java",
+  pytorch: "PyTorch",
+  tensorflow: "TensorFlow",
+  git: "Git",
+  numpy: "NumPy",
+  opencv: "OpenCV",
+  scikitlearn: "scikit-learn",
+  flask: "Flask",
+  html5: "HTML5",
+  css: "CSS3",
+  claude: "Claude",
+  n8n: "n8n",
+};
+
 interface TechIconProps {
   iconKey: string;
   className?: string;
@@ -40,10 +76,19 @@ export function TechIcon({ iconKey, className }: TechIconProps) {
   if (!path) return null;
 
   return (
-    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className={className}>
+    <svg
+      viewBox="0 0 24 24"
+      fill={iconColors[iconKey] ?? "currentColor"}
+      aria-hidden="true"
+      className={className}
+    >
       <path d={path} />
     </svg>
   );
+}
+
+export function getTechIconName(iconKey: string): string {
+  return iconNames[iconKey] ?? iconKey;
 }
 
 /**
