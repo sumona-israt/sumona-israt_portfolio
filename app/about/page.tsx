@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Brain, Code2, Eye, FlaskConical } from "lucide-react";
 
 import { siteConfig } from "@/data/site";
@@ -59,23 +60,34 @@ export default function AboutPage() {
         description={siteConfig.title}
       />
 
-      <AnimatedSection as="section" className="flex flex-col gap-4">
-        <SectionHeading eyebrow="Introduction" title="A closer look" />
-        <p className="text-muted-foreground">
-          Sumona is a Computer Science &amp; Engineering graduate from East West
-          University, currently pursuing an MSc in Artificial Intelligence &amp;
-          Machine Learning at the same institution. Her academic work sits at the
-          intersection of computer vision and self-supervised learning — most
-          recently a final year project on vision-based malware detection, and a
-          paper on freshwater fish species classification accepted at ICCIT 2025.
-        </p>
-        <p className="text-muted-foreground">
-          She&apos;s currently building hands-on skills in prompt engineering, AI
-          agent design, and AI system evaluation through an ongoing course, and is
-          especially drawn to the evaluation side of AI: the close, methodical work
-          of reviewing model outputs for errors, inconsistencies, and unsafe
-          assumptions.
-        </p>
+      <AnimatedSection as="section" className="grid gap-8 sm:grid-cols-[200px_1fr] sm:items-start">
+        <div className="relative mx-auto aspect-square w-40 overflow-hidden rounded-3xl border border-border sm:mx-0 sm:w-full">
+          <Image
+            src="/images/profile/profile.jpg"
+            alt={siteConfig.name}
+            fill
+            sizes="200px"
+            className="object-cover"
+          />
+        </div>
+        <div className="flex flex-col gap-4">
+          <SectionHeading eyebrow="Introduction" title="A closer look" />
+          <p className="text-muted-foreground">
+            Sumona is a Computer Science &amp; Engineering graduate from East West
+            University, currently pursuing an MSc in Artificial Intelligence &amp;
+            Machine Learning at the same institution. Her academic work sits at the
+            intersection of computer vision and self-supervised learning — most
+            recently a final year project on vision-based malware detection, and a
+            paper on freshwater fish species classification accepted at ICCIT 2025.
+          </p>
+          <p className="text-muted-foreground">
+            She&apos;s currently building hands-on skills in prompt engineering, AI
+            agent design, and AI system evaluation through an ongoing course, and is
+            especially drawn to the evaluation side of AI: the close, methodical work
+            of reviewing model outputs for errors, inconsistencies, and unsafe
+            assumptions.
+          </p>
+        </div>
       </AnimatedSection>
 
       <AnimatedSection as="section" className="flex flex-col gap-8">

@@ -1,8 +1,8 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 import { siteConfig } from "@/data/site";
-import { Avatar } from "@/components/shared/Avatar";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { AnimatedSection } from "@/components/shared/AnimatedSection";
 import { Button } from "@/components/ui/button";
@@ -12,10 +12,16 @@ export function AboutPreview() {
     <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8">
       <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
         <AnimatedSection>
-          <Avatar
-            initials={siteConfig.initials}
-            className="mx-auto w-48 sm:w-56 lg:w-full lg:max-w-xs"
-          />
+          <div className="relative mx-auto aspect-square w-48 overflow-hidden rounded-3xl border border-border sm:w-56 lg:w-full lg:max-w-xs">
+            <Image
+              src="/images/profile/profile.jpg"
+              alt={siteConfig.name}
+              fill
+              sizes="(min-width: 1024px) 320px, 224px"
+              className="object-cover"
+              priority
+            />
+          </div>
         </AnimatedSection>
         <AnimatedSection delay={0.1} className="flex flex-col gap-5">
           <SectionHeading

@@ -61,7 +61,7 @@ Add a new project by adding an entry to `projects.ts` — the `/projects/[slug]`
 
 Place images under `public/images/` (e.g. `public/images/projects/`, `public/images/profile/`). Reference them by path from `src/data/projects.ts` (`image`, `screenshots`). Next's built-in image optimizer is disabled for static export (`images: { unoptimized: true }`), so `next/image` just serves the file as-is — no server-side optimization step.
 
-There's no real profile photo yet — `components/shared/Avatar.tsx` renders a code-based monogram placeholder ("SI") instead. Once a real photo is available, drop it at `public/images/profile/profile.jpg` and swap it in wherever `<Avatar />` is used (currently the homepage About preview).
+The real profile photo lives at `public/images/profile/profile.jpg`, used on the homepage About preview and the `/about` page. Replace that file to update the photo everywhere it's used.
 
 ## Resume
 
