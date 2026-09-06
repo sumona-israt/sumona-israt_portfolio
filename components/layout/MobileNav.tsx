@@ -17,6 +17,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { SocialLinks } from "@/components/shared/SocialLinks";
+import { SignatureName } from "./SignatureName";
 
 export function MobileNav() {
   const pathname = usePathname();
@@ -30,8 +31,10 @@ export function MobileNav() {
         </Button>
       </SheetTrigger>
       <SheetContent side="right" className="flex flex-col">
-        <SheetHeader>
-          <SheetTitle>{siteConfig.name}</SheetTitle>
+        <SheetHeader className="pr-10">
+          <SheetTitle>
+            <SignatureName name={siteConfig.name} className="text-xl text-foreground" />
+          </SheetTitle>
         </SheetHeader>
         <nav className="flex flex-col gap-1 px-4">
           {siteConfig.mainNav.map((item) => {

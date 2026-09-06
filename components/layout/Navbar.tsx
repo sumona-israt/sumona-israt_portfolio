@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme/theme-toggle";
 import { MobileNav } from "./MobileNav";
+import { SignatureName } from "./SignatureName";
 
 export function Navbar() {
   const pathname = usePathname();
@@ -33,11 +34,11 @@ export function Navbar() {
       )}
     >
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link href="/" className="flex items-center gap-2 text-sm font-semibold tracking-tight">
-          <span className="flex size-8 items-center justify-center rounded-lg bg-primary text-sm text-primary-foreground">
+        <Link href="/" className="flex items-center gap-2.5">
+          <span className="flex size-8 items-center justify-center rounded-lg bg-primary text-sm font-semibold tracking-tight text-primary-foreground">
             {siteConfig.initials}
           </span>
-          <span className="hidden sm:inline">{siteConfig.name}</span>
+          <SignatureName name={siteConfig.name} className="hidden text-2xl text-foreground sm:inline-flex" />
         </Link>
 
         <nav aria-label="Main" className="hidden items-center gap-1 md:flex">
