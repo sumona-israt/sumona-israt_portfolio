@@ -44,7 +44,7 @@ export const siteConfig: SiteConfig = {
   title: "AI/ML Engineer — Fresher | Aspiring AI Evaluation & Prompt Testing Specialist",
   description:
     "Recent CSE graduate from East West University, now pursuing an MSc in AI & Machine Learning. Background in deep learning and computer vision, with a paper accepted at ICCIT 2025 on self-supervised classification.",
-  url: "https://sumona-israt-portfolio.vercel.app",
+  url: "https://sumona-israt.vercel.app",
   author: {
     name: "Sumona Sharmin Israt",
     email: "sumona.bd81@gmail.com",
