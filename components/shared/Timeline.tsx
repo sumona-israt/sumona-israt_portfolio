@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import { AnimatedSection } from "./AnimatedSection";
 import { TechBadge } from "./TechBadge";
 
@@ -9,6 +11,7 @@ export interface TimelineItem {
   description?: string;
   bullets?: string[];
   tags?: string[];
+  image?: string;
 }
 
 export function Timeline({ items }: { items: TimelineItem[] }) {
@@ -17,33 +20,52 @@ export function Timeline({ items }: { items: TimelineItem[] }) {
       {items.map((item, index) => (
         <AnimatedSection as="li" key={item.id} delay={index * 0.05} className="relative">
           <span className="absolute top-1 -left-[2.35rem] size-3 rounded-full border-2 border-background bg-primary" />
-          <div className="flex flex-col gap-2">
-            <div className="flex flex-wrap items-baseline justify-between gap-2">
-              <h3 className="text-lg font-semibold tracking-tight">{item.title}</h3>
-              {item.meta ? (
-                <span className="text-sm text-muted-foreground">{item.meta}</span>
-              ) : null}
-            </div>
-            {item.subtitle ? (
-              <p className="text-sm text-muted-foreground">{item.subtitle}</p>
-            ) : null}
-            {item.description ? (
-              <p className="text-sm text-muted-foreground">{item.description}</p>
-            ) : null}
-            {item.bullets && item.bullets.length > 0 ? (
-              <ul className="mt-1 flex list-disc flex-col gap-1 pl-4 text-sm text-muted-foreground">
-                {item.bullets.map((bullet) => (
-                  <li key={bullet}>{bullet}</li>
-                ))}
-              </ul>
-            ) : null}
-            {item.tags && item.tags.length > 0 ? (
-              <div className="mt-1 flex flex-wrap gap-1.5">
-                {item.tags.map((tag) => (
-                  <TechBadge key={tag} label={tag} />
-                ))}
+          <div
+            className={
+              item.image
+                ? "overflow-hidden rounded-2xl border border-border bg-card"
+                : "flex flex-col gap-2"
+            }
+          >
+            {item.image ? (
+              <div className="relative aspect-16/7 w-full">
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  fill
+                  sizes="(min-width: 768px) 700px, 100vw"
+                  className="object-cover"
+                />
               </div>
             ) : null}
+            <div className={item.image ? "flex flex-col gap-2 p-5" : "contents"}>
+              <div className="flex flex-wrap items-baseline justify-between gap-2">
+                <h3 className="text-lg font-semibold tracking-tight">{item.title}</h3>
+                {item.meta ? (
+                  <span className="text-sm text-muted-foreground">{item.meta}</span>
+                ) : null}
+              </div>
+              {item.subtitle ? (
+                <p className="text-sm text-muted-foreground">{item.subtitle}</p>
+              ) : null}
+              {item.description ? (
+                <p className="text-sm text-muted-foreground">{item.description}</p>
+              ) : null}
+              {item.bullets && item.bullets.length > 0 ? (
+                <ul className="mt-1 flex list-disc flex-col gap-1 pl-4 text-sm text-muted-foreground">
+                  {item.bullets.map((bullet) => (
+                    <li key={bullet}>{bullet}</li>
+                  ))}
+                </ul>
+              ) : null}
+              {item.tags && item.tags.length > 0 ? (
+                <div className="mt-1 flex flex-wrap gap-1.5">
+                  {item.tags.map((tag) => (
+                    <TechBadge key={tag} label={tag} />
+                  ))}
+                </div>
+              ) : null}
+            </div>
           </div>
         </AnimatedSection>
       ))}

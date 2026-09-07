@@ -22,6 +22,7 @@ export default function EducationPage() {
             subtitle: [entry.institution, entry.location].filter(Boolean).join(" · "),
             meta: entry.period,
             bullets: entry.coursework,
+            image: entry.image,
           }))}
         />
       </div>

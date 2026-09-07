@@ -7,6 +7,7 @@ export interface EducationEntry {
   gpa?: string;
   honors?: string[];
   coursework?: string[];
+  image?: string;
 }
 
 // Real entries only — do not invent GPA, honors, or coursework.
@@ -17,6 +18,7 @@ export const education: EducationEntry[] = [
     institution: "East West University",
     location: "Dhaka, Bangladesh",
     period: "In Progress",
+    image: "/images/education/east-west-university.jpg",
   },
   {
     id: "bsc-cse",
@@ -24,6 +26,7 @@ export const education: EducationEntry[] = [
     institution: "East West University",
     location: "Dhaka, Bangladesh",
     period: "January 2022 – December 2025",
+    image: "/images/education/east-west-university.jpg",
   },
   {
     id: "hsc-science",
@@ -31,5 +34,6 @@ export const education: EducationEntry[] = [
     institution: "Dhaka Cantt Girls' Public School & College",
     location: "Dhaka, Bangladesh",
     period: "2018 – 2020",
+    image: "/images/education/dhaka-cantt-girls-college.webp",
   },
 ];
