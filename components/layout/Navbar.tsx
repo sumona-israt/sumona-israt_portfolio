@@ -80,13 +80,15 @@ export function Navbar() {
 
         <div className="flex items-center gap-2">
           <ThemeToggle />
-          <BloomButton className="hidden sm:inline-flex">
-            <Button asChild variant="outline" size="sm">
-              <a href="/resume.pdf" download>
-                Resume
-              </a>
-            </Button>
-          </BloomButton>
+          <span className="hidden sm:inline-flex">
+            <BloomButton>
+              <Button asChild variant="outline" size="sm">
+                <a href="/resume.pdf" download>
+                  Resume
+                </a>
+              </Button>
+            </BloomButton>
+          </span>
           <MobileNav />
         </div>
       </div>

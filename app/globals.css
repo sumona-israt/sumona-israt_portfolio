@@ -229,6 +229,116 @@
 }
 
 /*
+ * Pill-shaped theme toggle switch (see theme-toggle.tsx) — same shape,
+ * sliding thumb, and 3D dot-flip mechanic as the reference design, but
+ * recolored with the site's indigo `--primary` token (via color-mix,
+ * so it adapts automatically between light/dark) instead of the
+ * original's fixed pink gradient.
+ */
+.theme-switch {
+  --size: 26px;
+  position: relative;
+  display: inline-flex;
+  line-height: 0;
+  perspective: 400px;
+  font-size: var(--size);
+}
+
+.theme-switch input[type="checkbox"],
+.theme-switch label,
+.theme-switch label::before,
+.theme-switch label::after {
+  appearance: none;
+  display: inline-block;
+  border-radius: var(--size);
+  border: 0;
+  transition: 0.35s ease-in-out;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.theme-switch label {
+  width: calc(2.2 * var(--size));
+  height: var(--size);
+  background: linear-gradient(
+    90deg,
+    color-mix(in oklch, var(--primary), transparent 5%),
+    color-mix(in oklch, var(--primary), black 20%)
+  );
+  overflow: hidden;
+}
+
+.theme-switch input[type="checkbox"] {
+  position: absolute;
+  z-index: 1;
+  width: calc(0.8 * var(--size));
+  height: calc(0.8 * var(--size));
+  top: calc(0.1 * var(--size));
+  left: calc(0.1 * var(--size));
+  background: linear-gradient(45deg, #f4f4f5, #ffffff);
+  box-shadow: 0 3px 6px rgb(0 0 0 / 30%);
+  outline: none;
+  margin: 0;
+}
+
+.theme-switch input[type="checkbox"]:checked {
+  left: calc(1.3 * var(--size));
+}
+
+.theme-switch input[type="checkbox"]:checked + label {
+  background: color-mix(in oklch, var(--muted), black 8%);
+}
+
+.theme-switch input[type="checkbox"]:disabled {
+  cursor: default;
+  opacity: 0.6;
+}
+
+.theme-switch label::before,
+.theme-switch label::after {
+  content: "· ·";
+  position: absolute;
+  overflow: hidden;
+  left: calc(0.15 * var(--size));
+  top: calc(0.5 * var(--size));
+  height: var(--size);
+  letter-spacing: calc(-0.04 * var(--size));
+  color: color-mix(in oklch, var(--primary-foreground), transparent 15%);
+  font-family: "Times New Roman", serif;
+  z-index: 2;
+  font-size: calc(0.6 * var(--size));
+  border-radius: 0;
+  transform-origin: 0 0 calc(-0.5 * var(--size));
+  backface-visibility: hidden;
+}
+
+.theme-switch label::after {
+  content: "●";
+  top: calc(0.65 * var(--size));
+  left: calc(0.2 * var(--size));
+  height: calc(0.1 * var(--size));
+  width: calc(0.35 * var(--size));
+  font-size: calc(0.2 * var(--size));
+  transform-origin: 0 0 calc(-0.4 * var(--size));
+}
+
+.theme-switch input[type="checkbox"]:checked + label::before,
+.theme-switch input[type="checkbox"]:checked + label::after {
+  left: calc(1.55 * var(--size));
+  top: calc(0.4 * var(--size));
+  line-height: calc(0.1 * var(--size));
+  transform: rotateY(360deg);
+}
+
+.theme-switch input[type="checkbox"]:checked + label::after {
+  height: calc(0.16 * var(--size));
+  top: calc(0.55 * var(--size));
+  left: calc(1.6 * var(--size));
+  font-size: calc(0.6 * var(--size));
+  line-height: 0;
+}
+
+/*
  * Continuous shimmer sweep across the navbar signature name, once its
  * letter-by-letter entrance has finished (see SignatureName.tsx).
  */

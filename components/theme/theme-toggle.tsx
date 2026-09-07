@@ -1,33 +1,25 @@
 "use client";
 
-import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 
 import { useMounted } from "@/hooks/use-mounted";
-import { Button } from "@/components/ui/button";
 
 export function ThemeToggle() {
   const { resolvedTheme, setTheme } = useTheme();
   const mounted = useMounted();
-
-  if (!mounted) {
-    return (
-      <Button variant="ghost" size="icon" aria-label="Toggle theme" disabled>
-        <Sun className="size-4" />
-      </Button>
-    );
-  }
-
-  const isDark = resolvedTheme === "dark";
+  const isDark = mounted && resolvedTheme === "dark";
 
   return (
-    <Button
-      variant="ghost"
-      size="icon"
-      aria-label={isDark ? "Switch to light theme" : "Switch to dark theme"}
-      onClick={() => setTheme(isDark ? "light" : "dark")}
-    >
-      {isDark ? <Sun className="size-4" /> : <Moon className="size-4" />}
-    </Button>
+    <span className="theme-switch">
+      <input
+        id="theme-switch"
+        type="checkbox"
+        checked={isDark}
+        disabled={!mounted}
+        onChange={() => setTheme(isDark ? "light" : "dark")}
+        aria-label={isDark ? "Switch to light theme" : "Switch to dark theme"}
+      />
+      <label htmlFor="theme-switch" />
+    </span>
   );
 }
