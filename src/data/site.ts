@@ -67,6 +67,7 @@ export const siteConfig: SiteConfig = {
     { label: "Projects", href: "/projects" },
     { label: "Research", href: "/research" },
     { label: "Experience", href: "/experience" },
+    { label: "Education", href: "/education" },
     { label: "Contact", href: "/contact" },
   ],
   footerNav: [

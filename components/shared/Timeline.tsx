@@ -12,6 +12,7 @@ export interface TimelineItem {
   bullets?: string[];
   tags?: string[];
   image?: string;
+  logo?: string;
 }
 
 export function Timeline({ items }: { items: TimelineItem[] }) {
@@ -23,24 +24,37 @@ export function Timeline({ items }: { items: TimelineItem[] }) {
           <div
             className={
               item.image
-                ? "overflow-hidden rounded-2xl border border-border bg-card"
+                ? "overflow-hidden rounded-2xl border border-border bg-card sm:flex sm:flex-row-reverse sm:items-stretch"
                 : "flex flex-col gap-2"
             }
           >
             {item.image ? (
-              <div className="relative aspect-16/7 w-full">
+              <div className="relative aspect-16/7 w-full sm:aspect-auto sm:w-2/5 sm:shrink-0">
                 <Image
                   src={item.image}
                   alt={item.title}
                   fill
-                  sizes="(min-width: 768px) 700px, 100vw"
+                  sizes="(min-width: 640px) 40vw, 100vw"
                   className="object-cover"
                 />
               </div>
             ) : null}
-            <div className={item.image ? "flex flex-col gap-2 p-5" : "contents"}>
-              <div className="flex flex-wrap items-baseline justify-between gap-2">
-                <h3 className="text-lg font-semibold tracking-tight">{item.title}</h3>
+            <div className={item.image ? "flex flex-col gap-2 p-5 sm:flex-1" : "contents"}>
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <div className="flex items-center gap-3">
+                  {item.logo ? (
+                    <span className="relative inline-block h-16 w-24 shrink-0">
+                      <Image
+                        src={item.logo}
+                        alt={`${item.title} logo`}
+                        fill
+                        sizes="96px"
+                        className="object-contain object-left"
+                      />
+                    </span>
+                  ) : null}
+                  <h3 className="text-lg font-semibold tracking-tight">{item.title}</h3>
+                </div>
                 {item.meta ? (
                   <span className="text-sm text-muted-foreground">{item.meta}</span>
                 ) : null}

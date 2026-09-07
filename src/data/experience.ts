@@ -7,6 +7,7 @@ export interface ExperienceEntry {
   description: string;
   responsibilities: string[];
   technologies?: string[];
+  logo?: string;
 }
 
 // Repurposed as academic/research experience: no formal employment yet
@@ -27,6 +28,7 @@ export const experience: ExperienceEntry[] = [
       "Working through a dedicated module on model context protocol (MCP), tool calling, and production-grade AI system monitoring and testing",
     ],
     technologies: ["Claude", "Claude Code", "n8n", "MCP", "RAG", "Vector Databases"],
+    logo: "/images/logos/ostad.png",
   },
   {
     id: "iccit-2025-research",

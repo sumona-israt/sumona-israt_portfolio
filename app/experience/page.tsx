@@ -28,6 +28,7 @@ export default function ExperiencePage() {
             description: entry.description,
             bullets: entry.responsibilities,
             tags: entry.technologies,
+            logo: entry.logo,
           }))}
         />
       </div>
