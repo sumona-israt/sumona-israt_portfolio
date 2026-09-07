@@ -56,10 +56,10 @@ export default async function ProjectDetailPage({
   const nextProject = index < projects.length - 1 ? projects[index + 1] : undefined;
 
   return (
-    <div className="mx-auto flex max-w-4xl flex-col gap-16 px-4 py-16 sm:px-6 lg:px-8">
+    <div className="mx-auto flex max-w-7xl flex-col gap-16 px-4 py-16 sm:px-6 lg:px-8">
       <ProjectHero project={project} />
 
-      <div className="flex flex-col gap-12">
+      <div className="flex max-w-3xl flex-col gap-12">
         {detailSections.map(({ key, label }) => {
           const value = project[key];
           if (!value) return null;

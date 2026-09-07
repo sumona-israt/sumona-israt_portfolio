@@ -53,14 +53,17 @@ const whatIBuild = [
 
 export default function AboutPage() {
   return (
-    <div className="mx-auto flex max-w-4xl flex-col gap-20 px-4 py-16 sm:px-6 lg:px-8">
+    <div className="mx-auto flex max-w-7xl flex-col gap-20 px-4 py-16 sm:px-6 lg:px-8">
       <PageHeader
         eyebrow="About"
         title={`About ${siteConfig.name}`}
         description={siteConfig.title}
       />
 
-      <AnimatedSection as="section" className="grid gap-8 sm:grid-cols-[200px_1fr] sm:items-start">
+      <AnimatedSection
+        as="section"
+        className="grid max-w-3xl gap-8 sm:grid-cols-[200px_1fr] sm:items-start"
+      >
         <div className="relative mx-auto aspect-square w-40 overflow-hidden rounded-3xl border border-border sm:mx-0 sm:w-full">
           <Image
             src="/images/profile/profile.jpg"
@@ -129,7 +132,10 @@ export default function AboutPage() {
         </div>
       </AnimatedSection>
 
-      <AnimatedSection as="section" className="flex flex-col gap-4 border-t border-border pt-12">
+      <AnimatedSection
+        as="section"
+        className="flex max-w-3xl flex-col gap-4 border-t border-border pt-12"
+      >
         <SectionHeading eyebrow="Philosophy" title="How I approach the work" />
         <p className="text-muted-foreground">
           I care about correctness as much as capability. A model that performs well

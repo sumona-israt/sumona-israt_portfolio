@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 
 export function AboutPreview() {
   return (
-    <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8">
+    <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
       <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
         <AnimatedSection>
           <div className="relative mx-auto aspect-square w-48 overflow-hidden rounded-3xl border border-border sm:w-56 lg:w-full lg:max-w-xs">

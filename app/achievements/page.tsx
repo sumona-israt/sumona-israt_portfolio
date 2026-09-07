@@ -4,6 +4,7 @@ import { Award } from "lucide-react";
 import { siteConfig } from "@/data/site";
 import { achievements } from "@/data/achievements";
 import { certifications } from "@/data/certifications";
+import { cn } from "@/lib/utils";
 import { PageHeader } from "@/components/shared/PageHeader";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { AnimatedSection } from "@/components/shared/AnimatedSection";
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
 
 export default function AchievementsPage() {
   return (
-    <div className="mx-auto flex max-w-5xl flex-col gap-16 px-4 py-16 sm:px-6 lg:px-8">
+    <div className="mx-auto flex max-w-7xl flex-col gap-16 px-4 py-16 sm:px-6 lg:px-8">
       <PageHeader
         eyebrow="Recognition"
         title="Achievements"
@@ -25,7 +26,7 @@ export default function AchievementsPage() {
 
       <AnimatedSection as="section" className="flex flex-col gap-6">
         <SectionHeading title="Achievements" />
-        <div className="grid gap-4 sm:grid-cols-2">
+        <div className={cn("grid max-w-3xl gap-4", achievements.length > 1 && "sm:grid-cols-2")}>
           {achievements.map((achievement) => (
             <div
               key={achievement.id}
@@ -56,7 +57,7 @@ export default function AchievementsPage() {
 
       <AnimatedSection as="section" className="flex flex-col gap-6">
         <SectionHeading title="Certifications & Ongoing Training" />
-        <div className="flex flex-col gap-4">
+        <div className="flex max-w-3xl flex-col gap-4">
           {certifications.map((certification) => (
             <div
               key={certification.id}

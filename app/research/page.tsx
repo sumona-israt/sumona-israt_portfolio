@@ -9,6 +9,7 @@ import {
   researchPipeline,
   researchTimeline,
 } from "@/data/research";
+import { cn } from "@/lib/utils";
 import { PageHeader } from "@/components/shared/PageHeader";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { AnimatedSection } from "@/components/shared/AnimatedSection";
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
 
 export default function ResearchPage() {
   return (
-    <div className="mx-auto flex max-w-5xl flex-col gap-20 px-4 py-16 sm:px-6 lg:px-8">
+    <div className="mx-auto flex max-w-7xl flex-col gap-20 px-4 py-16 sm:px-6 lg:px-8">
       <PageHeader
         eyebrow="Research"
         title="Research"
@@ -42,7 +43,7 @@ export default function ResearchPage() {
 
       <AnimatedSection as="section" className="flex flex-col gap-6">
         <SectionHeading title="Publications" />
-        <div className="grid gap-4 sm:grid-cols-2">
+        <div className={cn("grid max-w-3xl gap-4", publications.length > 1 && "sm:grid-cols-2")}>
           {publications.map((publication) => (
             <ResearchCard key={publication.id} publication={publication} />
           ))}
@@ -84,7 +85,9 @@ export default function ResearchPage() {
 
       <AnimatedSection as="section" className="flex flex-col gap-8">
         <SectionHeading title="Timeline" />
-        <ResearchTimeline entries={researchTimeline} />
+        <div className="max-w-3xl">
+          <ResearchTimeline entries={researchTimeline} />
+        </div>
       </AnimatedSection>
     </div>
   );

@@ -31,7 +31,7 @@ export function Hero() {
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_right,color-mix(in_oklch,var(--primary),transparent_88%),transparent_60%)]"
       />
-      <div className="mx-auto grid max-w-6xl gap-12 px-4 py-14 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:px-8 lg:py-20">
+      <div className="mx-auto grid max-w-7xl gap-12 px-4 py-14 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:px-8 lg:py-20">
         <motion.div
           initial={shouldReduceMotion ? undefined : "hidden"}
           animate={shouldReduceMotion ? undefined : "visible"}

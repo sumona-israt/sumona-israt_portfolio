@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 
 export function ResearchPreview() {
   return (
-    <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8">
+    <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
       <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
         <AnimatedSection className="flex flex-col gap-6">
           <SectionHeading

@@ -13,7 +13,7 @@ export function FeaturedProjects() {
 
   return (
     <section className="border-t border-border bg-muted/20">
-      <div className="mx-auto flex max-w-6xl flex-col gap-10 px-4 py-20 sm:px-6 lg:px-8">
+      <div className="mx-auto flex max-w-7xl flex-col gap-10 px-4 py-20 sm:px-6 lg:px-8">
         <AnimatedSection className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <SectionHeading
             eyebrow="Selected Work"

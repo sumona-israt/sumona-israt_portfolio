@@ -12,17 +12,19 @@ export const metadata: Metadata = {
 
 export default function EducationPage() {
   return (
-    <div className="mx-auto flex max-w-4xl flex-col gap-10 px-4 py-16 sm:px-6 lg:px-8">
+    <div className="mx-auto flex max-w-7xl flex-col gap-10 px-4 py-16 sm:px-6 lg:px-8">
       <PageHeader eyebrow="Education" title="Education" description="Academic timeline." />
-      <Timeline
-        items={education.map((entry) => ({
-          id: entry.id,
-          title: entry.degree,
-          subtitle: [entry.institution, entry.location].filter(Boolean).join(" · "),
-          meta: entry.period,
-          bullets: entry.coursework,
-        }))}
-      />
+      <div className="max-w-3xl">
+        <Timeline
+          items={education.map((entry) => ({
+            id: entry.id,
+            title: entry.degree,
+            subtitle: [entry.institution, entry.location].filter(Boolean).join(" · "),
+            meta: entry.period,
+            bullets: entry.coursework,
+          }))}
+        />
+      </div>
     </div>
   );
 }
