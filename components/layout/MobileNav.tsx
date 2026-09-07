@@ -17,6 +17,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { SocialLinks } from "@/components/shared/SocialLinks";
+import { BloomButton } from "@/components/shared/BloomButton";
 import { SignatureName } from "./SignatureName";
 
 export function MobileNav() {
@@ -57,11 +58,13 @@ export function MobileNav() {
           })}
         </nav>
         <div className="mt-auto flex flex-col gap-4 border-t border-border p-4">
-          <Button asChild variant="outline">
-            <a href="/resume.pdf" download>
-              Download Resume
-            </a>
-          </Button>
+          <BloomButton className="w-full">
+            <Button asChild variant="outline" className="w-full">
+              <a href="/resume.pdf" download>
+                Download Resume
+              </a>
+            </Button>
+          </BloomButton>
           <SocialLinks className="justify-center" />
         </div>
       </SheetContent>

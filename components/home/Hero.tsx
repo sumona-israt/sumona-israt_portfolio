@@ -7,6 +7,7 @@ import { ArrowRight, Download } from "lucide-react";
 import { siteConfig } from "@/data/site";
 import { Button } from "@/components/ui/button";
 import { MagneticButton } from "@/components/shared/MagneticButton";
+import { BloomButton } from "@/components/shared/BloomButton";
 import { CoffeeLoader } from "@/components/shared/CoffeeLoader";
 
 const container: Variants = {
@@ -58,25 +59,31 @@ export function Hero() {
 
           <motion.div variants={item} className="flex flex-wrap items-center gap-3 pt-2">
             <MagneticButton>
-              <Button asChild size="lg">
-                <Link href="/projects">
-                  View Projects
-                  <ArrowRight className="size-4" />
-                </Link>
-              </Button>
+              <BloomButton>
+                <Button asChild size="lg">
+                  <Link href="/projects">
+                    View Projects
+                    <ArrowRight className="size-4" />
+                  </Link>
+                </Button>
+              </BloomButton>
             </MagneticButton>
             <MagneticButton>
-              <Button asChild size="lg" variant="outline">
-                <Link href="/contact">Get in Touch</Link>
-              </Button>
+              <BloomButton>
+                <Button asChild size="lg" variant="outline">
+                  <Link href="/contact">Get in Touch</Link>
+                </Button>
+              </BloomButton>
             </MagneticButton>
             <MagneticButton>
-              <Button asChild size="lg" variant="ghost">
-                <a href="/resume.pdf" download>
-                  <Download className="size-4" />
-                  Resume
-                </a>
-              </Button>
+              <BloomButton>
+                <Button asChild size="lg" variant="ghost">
+                  <a href="/resume.pdf" download>
+                    <Download className="size-4" />
+                    Resume
+                  </a>
+                </Button>
+              </BloomButton>
             </MagneticButton>
           </motion.div>
         </motion.div>

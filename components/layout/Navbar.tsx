@@ -8,6 +8,7 @@ import { motion, useReducedMotion } from "motion/react";
 import { siteConfig } from "@/data/site";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import { BloomButton } from "@/components/shared/BloomButton";
 import { ThemeToggle } from "@/components/theme/theme-toggle";
 import { MobileNav } from "./MobileNav";
 import { SignatureName } from "./SignatureName";
@@ -79,11 +80,13 @@ export function Navbar() {
 
         <div className="flex items-center gap-2">
           <ThemeToggle />
-          <Button asChild variant="outline" size="sm" className="hidden sm:inline-flex">
-            <a href="/resume.pdf" download>
-              Resume
-            </a>
-          </Button>
+          <BloomButton className="hidden sm:inline-flex">
+            <Button asChild variant="outline" size="sm">
+              <a href="/resume.pdf" download>
+                Resume
+              </a>
+            </Button>
+          </BloomButton>
           <MobileNav />
         </div>
       </div>

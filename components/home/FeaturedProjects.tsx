@@ -6,6 +6,7 @@ import { SectionHeading } from "@/components/shared/SectionHeading";
 import { AnimatedSection } from "@/components/shared/AnimatedSection";
 import { ProjectGrid } from "@/components/projects/ProjectGrid";
 import { Button } from "@/components/ui/button";
+import { BloomButton } from "@/components/shared/BloomButton";
 
 export function FeaturedProjects() {
   const featured = projects.filter((project) => project.featured);
@@ -20,12 +21,14 @@ export function FeaturedProjects() {
             title="Featured Projects"
             description="A closer look at the projects I've built and researched."
           />
-          <Button asChild variant="ghost" className="w-fit">
-            <Link href="/projects">
-              All projects
-              <ArrowRight className="size-4" />
-            </Link>
-          </Button>
+          <BloomButton>
+            <Button asChild variant="ghost" className="w-fit">
+              <Link href="/projects">
+                All projects
+                <ArrowRight className="size-4" />
+              </Link>
+            </Button>
+          </BloomButton>
         </AnimatedSection>
         <ProjectGrid projects={list} showComingSoon={projects.length < 3} />
       </div>

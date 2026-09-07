@@ -7,6 +7,7 @@ import { AnimatedSection } from "@/components/shared/AnimatedSection";
 import { TechBadge } from "@/components/shared/TechBadge";
 import { ResearchCard } from "@/components/research/ResearchCard";
 import { Button } from "@/components/ui/button";
+import { BloomButton } from "@/components/shared/BloomButton";
 
 export function ResearchPreview() {
   return (
@@ -23,12 +24,14 @@ export function ResearchPreview() {
               <TechBadge key={interest} label={interest} />
             ))}
           </div>
-          <Button asChild variant="outline" className="w-fit">
-            <Link href="/research">
-              Explore research
-              <ArrowRight className="size-4" />
-            </Link>
-          </Button>
+          <BloomButton>
+            <Button asChild variant="outline" className="w-fit">
+              <Link href="/research">
+                Explore research
+                <ArrowRight className="size-4" />
+              </Link>
+            </Button>
+          </BloomButton>
         </AnimatedSection>
         <AnimatedSection delay={0.1} className="flex flex-col gap-4">
           {publications.map((publication) => (

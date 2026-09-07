@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { BloomButton } from "@/components/shared/BloomButton";
 
 export default function NotFound() {
   return (
@@ -15,12 +16,14 @@ export default function NotFound() {
           The page you&apos;re looking for may have been moved or never existed.
         </p>
       </div>
-      <Button asChild>
-        <Link href="/">
-          <ArrowLeft className="size-4" />
-          Back to Home
-        </Link>
-      </Button>
+      <BloomButton>
+        <Button asChild>
+          <Link href="/">
+            <ArrowLeft className="size-4" />
+            Back to Home
+          </Link>
+        </Button>
+      </BloomButton>
     </div>
   );
 }

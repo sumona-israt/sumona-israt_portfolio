@@ -6,6 +6,7 @@ import { Send } from "lucide-react";
 import { siteConfig } from "@/data/site";
 import { buildMailtoUrl } from "@/lib/mailto";
 import { Button } from "@/components/ui/button";
+import { BloomButton } from "@/components/shared/BloomButton";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
@@ -129,10 +130,12 @@ export function ContactForm() {
         ) : null}
       </div>
 
-      <Button type="submit" size="lg" className="w-fit">
-        <Send className="size-4" />
-        Send Message
-      </Button>
+      <BloomButton className="w-fit">
+        <Button type="submit" size="lg" className="w-fit">
+          <Send className="size-4" />
+          Send Message
+        </Button>
+      </BloomButton>
       <p className="text-xs text-muted-foreground">
         This opens your email client with the message pre-filled — no data is sent
         anywhere else.

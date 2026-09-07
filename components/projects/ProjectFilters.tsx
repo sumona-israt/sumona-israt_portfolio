@@ -4,6 +4,7 @@ import { Search } from "lucide-react";
 
 import type { ProjectCategory } from "@/data/projects";
 import { Input } from "@/components/ui/input";
+import { BloomButton } from "@/components/shared/BloomButton";
 import { cn } from "@/lib/utils";
 
 interface ProjectFiltersProps {
@@ -25,20 +26,21 @@ export function ProjectFilters({
     <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
       <div className="flex flex-wrap gap-2" role="group" aria-label="Filter projects by category">
         {categories.map((category) => (
-          <button
-            key={category}
-            type="button"
-            onClick={() => onCategoryChange(category)}
-            aria-pressed={activeCategory === category}
-            className={cn(
-              "rounded-full border px-3.5 py-1.5 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50",
-              activeCategory === category
-                ? "border-primary bg-primary text-primary-foreground"
-                : "border-border text-muted-foreground hover:text-foreground"
-            )}
-          >
-            {category}
-          </button>
+          <BloomButton key={category}>
+            <button
+              type="button"
+              onClick={() => onCategoryChange(category)}
+              aria-pressed={activeCategory === category}
+              className={cn(
+                "rounded-full border px-3.5 py-1.5 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50",
+                activeCategory === category
+                  ? "border-primary bg-primary text-primary-foreground"
+                  : "border-border text-muted-foreground hover:text-foreground"
+              )}
+            >
+              {category}
+            </button>
+          </BloomButton>
         ))}
       </div>
 

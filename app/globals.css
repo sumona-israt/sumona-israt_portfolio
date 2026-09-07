@@ -126,6 +126,109 @@
 }
 
 /*
+ * "Bloom" hover decoration for labeled buttons (see BloomButton.tsx) —
+ * four small accent clusters at the corners that grow and spin slowly
+ * on hover, in the site's indigo accent rather than literal flowers.
+ */
+.bloom-wrap {
+  position: relative;
+  display: inline-flex;
+}
+
+.bloom-cluster {
+  position: absolute;
+  display: grid;
+  grid-template-columns: 0.65em 0.65em;
+  pointer-events: none;
+  z-index: 20;
+  opacity: 0;
+  transition:
+    grid-template-columns 0.6s ease,
+    opacity 0.4s ease;
+}
+
+.bloom-wrap:hover .bloom-cluster {
+  opacity: 1;
+  grid-template-columns: 1em 1em;
+}
+
+.bloom-petal {
+  width: 0.65em;
+  height: 0.65em;
+  border-radius: 40% 70% / 7% 90%;
+  background: linear-gradient(
+    color-mix(in oklch, var(--primary), white 30%),
+    color-mix(in oklch, var(--primary), transparent 20%)
+  );
+  border: 0.5px solid color-mix(in oklch, var(--primary), transparent 30%);
+  transition:
+    width 0.6s ease,
+    height 0.6s ease;
+}
+
+.bloom-wrap:hover .bloom-petal {
+  width: 1em;
+  height: 1em;
+}
+
+.bloom-petal.two {
+  transform: rotate(90deg);
+}
+.bloom-petal.three {
+  transform: rotate(270deg);
+}
+.bloom-petal.four {
+  transform: rotate(180deg);
+}
+
+.bloom-cluster-1 {
+  top: -0.55em;
+  left: -0.6em;
+}
+.bloom-cluster-2 {
+  top: -0.6em;
+  right: -0.6em;
+}
+.bloom-cluster-3 {
+  bottom: -0.6em;
+  left: -0.55em;
+}
+.bloom-cluster-4 {
+  bottom: -0.55em;
+  right: -0.55em;
+}
+
+.bloom-wrap:hover .bloom-cluster-1 {
+  animation: bloom-spin 15s linear infinite;
+}
+.bloom-wrap:hover .bloom-cluster-2 {
+  animation: bloom-spin-reverse 13s linear infinite;
+}
+.bloom-wrap:hover .bloom-cluster-3 {
+  animation: bloom-spin 17s linear infinite;
+}
+.bloom-wrap:hover .bloom-cluster-4 {
+  animation: bloom-spin-reverse 20s linear infinite;
+}
+
+@keyframes bloom-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes bloom-spin-reverse {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+/*
  * Continuous shimmer sweep across the navbar signature name, once its
  * letter-by-letter entrance has finished (see SignatureName.tsx).
  */

@@ -6,6 +6,7 @@ import { siteConfig } from "@/data/site";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { AnimatedSection } from "@/components/shared/AnimatedSection";
 import { Button } from "@/components/ui/button";
+import { BloomButton } from "@/components/shared/BloomButton";
 
 export function AboutPreview() {
   return (
@@ -36,12 +37,14 @@ export function AboutPreview() {
           />
           <p className="text-muted-foreground">{siteConfig.description}</p>
           <div>
-            <Button asChild variant="outline">
-              <Link href="/about">
-                More about me
-                <ArrowRight className="size-4" />
-              </Link>
-            </Button>
+            <BloomButton>
+              <Button asChild variant="outline">
+                <Link href="/about">
+                  More about me
+                  <ArrowRight className="size-4" />
+                </Link>
+              </Button>
+            </BloomButton>
           </div>
         </AnimatedSection>
       </div>

@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 
 import { AnimatedSection } from "@/components/shared/AnimatedSection";
 import { Button } from "@/components/ui/button";
+import { BloomButton } from "@/components/shared/BloomButton";
 
 export function ContactCTA() {
   return (
@@ -14,12 +15,14 @@ export function ContactCTA() {
         <p className="max-w-xl text-muted-foreground">
           Let&apos;s build something meaningful — reach out and I&apos;ll get back to you.
         </p>
-        <Button asChild size="lg">
-          <Link href="/contact">
-            Get in Touch
-            <ArrowRight className="size-4" />
-          </Link>
-        </Button>
+        <BloomButton>
+          <Button asChild size="lg">
+            <Link href="/contact">
+              Get in Touch
+              <ArrowRight className="size-4" />
+            </Link>
+          </Button>
+        </BloomButton>
       </AnimatedSection>
     </section>
   );
