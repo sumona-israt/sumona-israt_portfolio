@@ -109,7 +109,7 @@ export default function AboutPage() {
         <SectionHeading eyebrow="Focus Areas" title="Technical interests" />
         <div className="grid gap-4 sm:grid-cols-2">
           {researchInterests.map((interest) => (
-            <div key={interest} className="rounded-2xl border border-border bg-card p-5">
+            <div key={interest} className="rounded-2xl card-surface bg-card p-5">
               <h3 className="text-sm font-semibold tracking-tight">{interest}</h3>
               <p className="mt-1.5 text-sm text-muted-foreground">
                 {interestDescriptions[interest]}
@@ -123,7 +123,7 @@ export default function AboutPage() {
         <SectionHeading eyebrow="Practice" title="What I build" />
         <div className="grid gap-4 sm:grid-cols-2">
           {whatIBuild.map(({ icon: Icon, title, description }) => (
-            <div key={title} className="flex flex-col gap-3 rounded-2xl border border-border bg-card p-5">
+            <div key={title} className="flex flex-col gap-3 rounded-2xl card-surface bg-card p-5">
               <Icon className="size-6 text-primary" />
               <h3 className="text-sm font-semibold tracking-tight">{title}</h3>
               <p className="text-sm text-muted-foreground">{description}</p>

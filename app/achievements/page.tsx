@@ -30,7 +30,7 @@ export default function AchievementsPage() {
           {achievements.map((achievement) => (
             <div
               key={achievement.id}
-              className="flex flex-col gap-3 rounded-2xl border border-border bg-card p-6"
+              className="flex flex-col gap-3 rounded-2xl card-surface bg-card p-6"
             >
               <div className="flex items-center justify-between gap-3">
                 <Badge variant="outline">{achievement.category}</Badge>
@@ -61,7 +61,7 @@ export default function AchievementsPage() {
           {certifications.map((certification) => (
             <div
               key={certification.id}
-              className="flex flex-col gap-3 rounded-2xl border border-border bg-card p-6"
+              className="flex flex-col gap-3 rounded-2xl card-surface bg-card p-6"
             >
               <div className="flex flex-wrap items-center justify-between gap-2">
                 <h3 className="text-base font-semibold tracking-tight">

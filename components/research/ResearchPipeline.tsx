@@ -10,7 +10,7 @@ export function ResearchPipeline({ stages }: { stages: ResearchPipelineStage[] }
         <div key={stage.stage} className="flex flex-1 items-stretch lg:items-center">
           <AnimatedSection
             delay={index * 0.06}
-            className="flex flex-1 flex-col gap-2 rounded-2xl border border-border bg-card p-5"
+            className="flex flex-1 flex-col gap-2 rounded-2xl card-surface bg-card p-5"
           >
             <span className="text-xs font-medium tracking-widest text-primary uppercase">
               {String(index + 1).padStart(2, "0")}

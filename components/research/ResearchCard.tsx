@@ -3,7 +3,7 @@ import { Badge } from "@/components/ui/badge";
 
 export function ResearchCard({ publication }: { publication: Publication }) {
   return (
-    <div className="flex flex-col gap-3 rounded-2xl border border-border bg-card p-6">
+    <div className="flex flex-col gap-3 rounded-2xl card-surface bg-card p-6">
       <div className="flex items-center justify-between gap-3">
         <Badge variant={publication.status === "accepted" ? "default" : "outline"} className="capitalize">
           {publication.status}

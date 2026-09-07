@@ -24,7 +24,7 @@ export default function SkillsPage() {
           <AnimatedSection
             key={category.id}
             delay={index * 0.05}
-            className="rounded-2xl border border-border bg-card p-6"
+            className="rounded-2xl card-surface bg-card p-6"
           >
             <h2 className="text-sm font-medium tracking-wide text-primary uppercase">
               {category.name}

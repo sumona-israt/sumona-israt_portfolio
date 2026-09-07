@@ -22,7 +22,7 @@ export default function ContactPage() {
 
       <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr]">
         <div className="flex flex-col gap-8">
-          <div className="flex flex-col gap-4 rounded-2xl border border-border bg-card p-6">
+          <div className="flex flex-col gap-4 rounded-2xl card-surface bg-card p-6">
             <div className="flex items-center gap-3">
               <Mail className="size-5 text-primary" />
               <a

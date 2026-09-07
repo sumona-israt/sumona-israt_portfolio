@@ -5,10 +5,9 @@ import { motion, useReducedMotion, type Variants } from "motion/react";
 import { ArrowRight, Download } from "lucide-react";
 
 import { siteConfig } from "@/data/site";
-import { publications } from "@/data/research";
-import { education } from "@/data/education";
 import { Button } from "@/components/ui/button";
 import { MagneticButton } from "@/components/shared/MagneticButton";
+import { CoffeeLoader } from "@/components/shared/CoffeeLoader";
 
 const container: Variants = {
   hidden: {},
@@ -22,8 +21,6 @@ const item: Variants = {
 
 export function Hero() {
   const shouldReduceMotion = useReducedMotion();
-  const latestPublication = publications[0];
-  const inProgressDegree = education.find((entry) => entry.period === "In Progress");
 
   return (
     <section className="relative overflow-hidden">
@@ -88,44 +85,11 @@ export function Hero() {
           initial={shouldReduceMotion ? undefined : { opacity: 0, y: 24, scale: 0.98 }}
           animate={shouldReduceMotion ? undefined : { opacity: 1, y: 0, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
-          className="relative mx-auto w-full max-w-md"
+          className="relative mx-auto flex w-full max-w-md items-center justify-center"
         >
-          <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-xl shadow-black/5">
-            <div className="flex items-center gap-1.5 border-b border-border px-4 py-3">
-              <span className="size-2.5 rounded-full bg-destructive/60" />
-              <span className="size-2.5 rounded-full bg-muted-foreground/40" />
-              <span className="size-2.5 rounded-full bg-primary/50" />
-              <span className="ml-3 font-mono text-xs text-muted-foreground">
-                train_self_supervised.py
-              </span>
-            </div>
-            <pre className="overflow-x-auto p-5 font-mono text-[13px] leading-relaxed text-muted-foreground">
-              <code>
-                <span className="text-primary">for</span> epoch <span className="text-primary">in</span> range(epochs):{"\n"}
-                {"    "}views = augment(batch){"\n"}
-                {"    "}z1, z2 = encoder(views){"\n"}
-                {"    "}loss = contrastive_loss(z1, z2){"\n"}
-                {"    "}loss.backward(){"\n"}
-                {"    "}
-                <span className="text-primary">assert</span> no_manual_labels_used()
-              </code>
-            </pre>
+          <div className="translate-x-8 scale-[1.8] sm:translate-x-12 sm:scale-[2.2]">
+            <CoffeeLoader />
           </div>
-
-          <div className="absolute -bottom-6 -left-6 w-56 rounded-xl border border-border bg-card p-4 shadow-lg shadow-black/5">
-            <p className="text-xs font-medium tracking-wide text-primary uppercase">
-              Publication · {latestPublication.year}
-            </p>
-            <p className="mt-1 text-sm font-medium text-balance">{latestPublication.title}</p>
-            <p className="mt-1 text-xs text-muted-foreground">{latestPublication.venue}</p>
-          </div>
-
-          {inProgressDegree ? (
-            <div className="absolute -top-5 -right-4 rounded-xl border border-border bg-card px-4 py-2.5 shadow-lg shadow-black/5">
-              <p className="text-xs font-medium text-foreground">{inProgressDegree.degree}</p>
-              <p className="text-xs text-muted-foreground">{inProgressDegree.period}</p>
-            </div>
-          ) : null}
         </motion.div>
       </div>
     </section>

@@ -24,7 +24,7 @@ export function Timeline({ items }: { items: TimelineItem[] }) {
           <div
             className={
               item.image
-                ? "overflow-hidden rounded-2xl border border-border bg-card sm:flex sm:flex-row-reverse sm:items-stretch"
+                ? "overflow-hidden rounded-2xl card-surface bg-card sm:flex sm:flex-row-reverse sm:items-stretch"
                 : "flex flex-col gap-2"
             }
           >

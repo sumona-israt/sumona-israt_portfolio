@@ -23,7 +23,7 @@ export function ProjectCard({ project }: { project: Project }) {
   return (
     <Link
       href={`/projects/${project.slug}`}
-      className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-card transition-colors hover:border-primary/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50"
+      className="group flex flex-col overflow-hidden rounded-2xl border border-transparent card-surface bg-card transition-colors hover:border-primary/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50"
     >
       <div className="relative flex aspect-video items-center justify-center overflow-hidden bg-gradient-to-br from-primary/10 via-muted/40 to-transparent">
         <Icon className="size-12 text-primary/50 transition-transform group-hover:scale-110" />

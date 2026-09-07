@@ -25,7 +25,7 @@ export function SkillsPreview() {
             <AnimatedSection
               key={category.id}
               delay={index * 0.06}
-              className="rounded-2xl border border-border bg-card p-6"
+              className="rounded-2xl card-surface bg-card p-6"
             >
               <h3 className="text-sm font-medium tracking-wide text-primary uppercase">
                 {category.name}
