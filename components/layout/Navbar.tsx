@@ -46,7 +46,7 @@ export function Navbar() {
             return (
               <motion.span
                 key={item.href}
-                className="inline-block"
+                className="relative inline-block"
                 whileHover={shouldReduceMotion ? undefined : { scale: 1.08, y: -2 }}
                 whileTap={shouldReduceMotion ? undefined : { scale: 0.95 }}
                 transition={{ type: "spring", stiffness: 400, damping: 15 }}
@@ -61,6 +61,17 @@ export function Navbar() {
                 >
                   {item.label}
                 </Link>
+                {isActive ? (
+                  <motion.span
+                    layoutId="nav-active-underline"
+                    className="absolute inset-x-2 bottom-0 h-0.5 rounded-full bg-primary shadow-[0_0_10px_2px_var(--primary)]"
+                    transition={
+                      shouldReduceMotion
+                        ? { duration: 0 }
+                        : { type: "spring", stiffness: 380, damping: 30 }
+                    }
+                  />
+                ) : null}
               </motion.span>
             );
           })}
