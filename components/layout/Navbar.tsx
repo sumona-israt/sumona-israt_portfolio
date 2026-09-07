@@ -3,6 +3,7 @@
 import * as React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { motion, useReducedMotion } from "motion/react";
 
 import { siteConfig } from "@/data/site";
 import { cn } from "@/lib/utils";
@@ -13,6 +14,7 @@ import { SignatureName } from "./SignatureName";
 
 export function Navbar() {
   const pathname = usePathname();
+  const shouldReduceMotion = useReducedMotion();
   const [scrolled, setScrolled] = React.useState(false);
 
   React.useEffect(() => {
@@ -42,17 +44,24 @@ export function Navbar() {
           {siteConfig.mainNav.map((item) => {
             const isActive = pathname === item.href;
             return (
-              <Link
+              <motion.span
                 key={item.href}
-                href={item.href}
-                aria-current={isActive ? "page" : undefined}
-                className={cn(
-                  "rounded-md px-3 py-2 text-sm font-medium transition-colors hover:text-foreground",
-                  isActive ? "text-foreground" : "text-muted-foreground"
-                )}
+                className="inline-block"
+                whileHover={shouldReduceMotion ? undefined : { scale: 1.08, y: -2 }}
+                whileTap={shouldReduceMotion ? undefined : { scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 400, damping: 15 }}
               >
-                {item.label}
-              </Link>
+                <Link
+                  href={item.href}
+                  aria-current={isActive ? "page" : undefined}
+                  className={cn(
+                    "block rounded-md px-3 py-2 text-sm font-medium transition-colors hover:text-foreground",
+                    isActive ? "text-foreground" : "text-muted-foreground"
+                  )}
+                >
+                  {item.label}
+                </Link>
+              </motion.span>
             );
           })}
         </nav>
