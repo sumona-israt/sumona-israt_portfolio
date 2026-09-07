@@ -64,14 +64,20 @@ export default function AboutPage() {
         as="section"
         className="grid max-w-3xl gap-8 sm:grid-cols-[200px_1fr] sm:items-start"
       >
-        <div className="relative mx-auto aspect-square w-40 overflow-hidden rounded-3xl border border-border sm:mx-0 sm:w-full">
-          <Image
-            src="/images/profile/profile.jpg"
-            alt={siteConfig.name}
-            fill
-            sizes="200px"
-            className="object-cover"
+        <div className="group relative mx-auto w-40 sm:mx-0 sm:w-full">
+          <div
+            aria-hidden="true"
+            className="absolute -inset-4 -z-10 rounded-4xl bg-primary/35 opacity-0 blur-2xl transition-opacity duration-300 group-hover:opacity-100"
           />
+          <div className="relative aspect-square overflow-hidden rounded-3xl border border-border transition-transform duration-300 group-hover:-translate-y-1 group-hover:scale-105">
+            <Image
+              src="/images/profile/profile.jpg"
+              alt={siteConfig.name}
+              fill
+              sizes="200px"
+              className="object-cover"
+            />
+          </div>
         </div>
         <div className="flex flex-col gap-4">
           <SectionHeading eyebrow="Introduction" title="A closer look" />
