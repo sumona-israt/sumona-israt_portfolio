@@ -57,9 +57,14 @@ export const SignatureName = React.forwardRef<HTMLSpanElement, SignatureNameProp
         className={cn("relative inline-flex font-signature leading-none", className)}
       >
         {entranceDone ? (
-          <span aria-hidden="true" className="signature-shimmer inline-block whitespace-pre">
+          <motion.span
+            aria-hidden="true"
+            className="signature-shimmer inline-block whitespace-pre"
+            animate={{ x: [0, 4, 0, -4, 0] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+          >
             {name}
-          </span>
+          </motion.span>
         ) : (
           name.split("").map((char, index) => (
             <motion.span
