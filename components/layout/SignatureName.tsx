@@ -36,6 +36,7 @@ const underline: Variants = {
 export const SignatureName = React.forwardRef<HTMLSpanElement, SignatureNameProps>(
   function SignatureName({ name, className }, ref) {
     const shouldReduceMotion = useReducedMotion();
+    const [entranceDone, setEntranceDone] = React.useState(false);
 
     if (shouldReduceMotion) {
       return (
@@ -51,19 +52,26 @@ export const SignatureName = React.forwardRef<HTMLSpanElement, SignatureNameProp
         initial="hidden"
         animate="visible"
         variants={container}
+        onAnimationComplete={() => setEntranceDone(true)}
         aria-label={name}
         className={cn("relative inline-flex font-signature leading-none", className)}
       >
-        {name.split("").map((char, index) => (
-          <motion.span
-            key={index}
-            variants={letter}
-            aria-hidden="true"
-            className="inline-block whitespace-pre"
-          >
-            {char}
-          </motion.span>
-        ))}
+        {entranceDone ? (
+          <span aria-hidden="true" className="signature-shimmer inline-block whitespace-pre">
+            {name}
+          </span>
+        ) : (
+          name.split("").map((char, index) => (
+            <motion.span
+              key={index}
+              variants={letter}
+              aria-hidden="true"
+              className="inline-block whitespace-pre"
+            >
+              {char}
+            </motion.span>
+          ))
+        )}
         <motion.span
           variants={underline}
           aria-hidden="true"

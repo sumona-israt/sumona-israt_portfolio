@@ -114,6 +114,42 @@
   box-shadow:
     14px 14px 32px color-mix(in oklch, var(--card), black 15%),
     -10px -10px 26px color-mix(in oklch, var(--card), white 14%);
+  transition: box-shadow 0.3s ease;
+}
+
+.card-surface:hover {
+  box-shadow:
+    14px 14px 32px color-mix(in oklch, var(--card), black 15%),
+    -10px -10px 26px color-mix(in oklch, var(--card), white 14%),
+    0 0 0 1px color-mix(in oklch, var(--primary), transparent 25%),
+    0 0 28px 2px color-mix(in oklch, var(--primary), transparent 65%);
+}
+
+/*
+ * Continuous shimmer sweep across the navbar signature name, once its
+ * letter-by-letter entrance has finished (see SignatureName.tsx).
+ */
+@keyframes signature-shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.signature-shimmer {
+  background-image: linear-gradient(
+    100deg,
+    var(--foreground) 40%,
+    color-mix(in oklch, var(--primary), white 25%) 50%,
+    var(--foreground) 60%
+  );
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: signature-shimmer 3.5s linear infinite;
 }
 
 /* Coffee-cup hero loader (see components/shared/CoffeeLoader.tsx). */
