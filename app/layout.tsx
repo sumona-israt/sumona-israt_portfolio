@@ -3,9 +3,11 @@ import { Dancing_Script, Geist, Geist_Mono } from "next/font/google";
 
 import { siteConfig } from "@/data/site";
 import { ThemeProvider } from "@/components/theme/theme-provider";
+import { BackgroundStyleProvider } from "@/components/providers/background-style-provider";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { RadialGlowBackground } from "@/components/ui/radial-glow-background";
 import { BackgroundGradientGlow } from "@/components/ui/background-gradient-glow";
+import { AnimatedBackgroundLayer } from "@/components/backgrounds/AnimatedBackgroundLayer";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 
@@ -70,21 +72,24 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="flex min-h-full flex-col">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          <TooltipProvider>
-            <BackgroundGradientGlow className="fixed -z-10 dark:hidden" />
-            <RadialGlowBackground className="fixed hidden -z-10 dark:block" />
-            <a
-              href="#main-content"
-              className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-primary focus:px-4 focus:py-2 focus:text-sm focus:text-primary-foreground"
-            >
-              Skip to content
-            </a>
-            <Navbar />
-            <main id="main-content" className="flex-1">
-              {children}
-            </main>
-            <Footer />
-          </TooltipProvider>
+          <BackgroundStyleProvider>
+            <TooltipProvider>
+              <BackgroundGradientGlow className="fixed -z-10 dark:hidden" />
+              <RadialGlowBackground className="fixed hidden -z-10 dark:block" />
+              <AnimatedBackgroundLayer />
+              <a
+                href="#main-content"
+                className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-primary focus:px-4 focus:py-2 focus:text-sm focus:text-primary-foreground"
+              >
+                Skip to content
+              </a>
+              <Navbar />
+              <main id="main-content" className="flex-1">
+                {children}
+              </main>
+              <Footer />
+            </TooltipProvider>
+          </BackgroundStyleProvider>
         </ThemeProvider>
       </body>
     </html>

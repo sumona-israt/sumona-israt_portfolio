@@ -5,6 +5,7 @@ import { motion, useMotionValue, useReducedMotion, useSpring, useTransform } fro
 import { siteConfig } from "@/data/site";
 import GlyphPortal from "@/components/ui/glyph-portal";
 import { RadialGlowBackground } from "@/components/ui/radial-glow-background";
+import { AnimatedBackgroundEffect } from "@/components/backgrounds/AnimatedBackgroundEffect";
 
 export function Hero() {
   const shouldReduceMotion = useReducedMotion();
@@ -55,6 +56,9 @@ export function Hero() {
             }}
           />
           <RadialGlowBackground strong className="absolute hidden dark:block" />
+          <div aria-hidden="true" className="absolute inset-0 overflow-hidden">
+            <AnimatedBackgroundEffect />
+          </div>
         </>
       }
     >

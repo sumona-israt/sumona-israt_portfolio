@@ -10,6 +10,7 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { BloomButton } from "@/components/shared/BloomButton";
 import { ThemeToggle } from "@/components/theme/theme-toggle";
+import { BackgroundStylePicker } from "./BackgroundStylePicker";
 import { MobileNav } from "./MobileNav";
 import { SignatureName } from "./SignatureName";
 
@@ -79,6 +80,7 @@ export function Navbar() {
         </nav>
 
         <div className="flex items-center gap-2">
+          <BackgroundStylePicker />
           <ThemeToggle />
           <span className="hidden sm:inline-flex">
             <BloomButton>

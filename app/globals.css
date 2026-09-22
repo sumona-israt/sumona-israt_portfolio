@@ -365,6 +365,110 @@
   animation: signature-shimmer 3.5s linear infinite;
 }
 
+/*
+ * Navbar background-style picker (see components/backgrounds/) — one shared
+ * "falling particle" system driving 5 of the 7 presets, sized/timed/drifted
+ * per-particle via CSS custom properties set inline by FallingParticles.tsx.
+ */
+@keyframes bg-fall {
+  0% {
+    transform: translate3d(0, -10vh, 0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: var(--particle-opacity, 0.7);
+  }
+  25% {
+    transform: translate3d(calc(var(--drift, 0px) * 0.3), 15vh, 0) rotate(calc(var(--spin, 0deg) * 0.25));
+  }
+  50% {
+    transform: translate3d(calc(var(--drift, 0px) * -0.2), 50vh, 0) rotate(calc(var(--spin, 0deg) * 0.5));
+  }
+  75% {
+    transform: translate3d(calc(var(--drift, 0px) * 0.4), 80vh, 0) rotate(calc(var(--spin, 0deg) * 0.75));
+  }
+  90% {
+    opacity: var(--particle-opacity, 0.7);
+  }
+  100% {
+    transform: translate3d(var(--drift, 0px), 110vh, 0) rotate(var(--spin, 0deg));
+    opacity: 0;
+  }
+}
+
+.anim-particle {
+  position: absolute;
+  top: -10%;
+  border-radius: 50%;
+  pointer-events: none;
+  animation-name: bg-fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: transform, opacity;
+}
+
+.anim-particle-glow {
+  background: color-mix(in oklch, var(--primary), white 35%);
+  box-shadow: 0 0 8px 2px color-mix(in oklch, var(--primary), transparent 45%);
+}
+
+.anim-particle-petal {
+  background: linear-gradient(
+    135deg,
+    color-mix(in oklch, var(--primary), white 45%),
+    color-mix(in oklch, #ff6fb0, var(--primary) 25%)
+  );
+  border-radius: 60% 0% 60% 0%;
+}
+
+.anim-particle-snow {
+  background: #ffffff;
+  box-shadow: 0 0 4px 1px rgba(255, 255, 255, 0.6);
+}
+
+.dark .anim-particle-snow {
+  background: #e8ecff;
+}
+
+.anim-particle-leaf {
+  background: linear-gradient(160deg, #9ccc65, #5a8f3c);
+  border-radius: 0% 60% 0% 60%;
+}
+
+.anim-particle-rain {
+  width: 2px !important;
+  border-radius: 999px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    color-mix(in oklch, var(--primary), white 25%) 65%,
+    transparent
+  );
+}
+
+@keyframes bg-gradient-drift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.anim-gradient-drift {
+  background-image: linear-gradient(
+    120deg,
+    color-mix(in oklch, var(--primary), white 30%),
+    color-mix(in oklch, #ff8fc0, var(--primary) 30%),
+    color-mix(in oklch, #ffd88a, var(--primary) 30%),
+    color-mix(in oklch, var(--primary), white 15%)
+  );
+  background-size: 300% 300%;
+  opacity: 0.16;
+  animation: bg-gradient-drift 18s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
