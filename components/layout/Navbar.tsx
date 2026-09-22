@@ -30,10 +30,10 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-40 w-full border-b transition-colors",
+        "sticky top-0 z-40 w-full border-b backdrop-blur-xl backdrop-saturate-150 transition-all duration-300",
         scrolled
-          ? "border-border bg-background/80 backdrop-blur-md"
-          : "border-transparent bg-transparent"
+          ? "border-white/15 bg-background/45 shadow-[0_8px_32px_-12px_rgba(0,0,0,0.25)] dark:border-white/10 dark:bg-background/35 dark:shadow-[0_8px_32px_-12px_rgba(0,0,0,0.7)]"
+          : "border-transparent bg-background/10"
       )}
     >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">

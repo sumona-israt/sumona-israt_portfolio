@@ -4,6 +4,7 @@ import { motion, useMotionValue, useReducedMotion, useSpring, useTransform } fro
 
 import { siteConfig } from "@/data/site";
 import GlyphPortal from "@/components/ui/glyph-portal";
+import { RadialGlowBackground } from "@/components/ui/radial-glow-background";
 
 export function Hero() {
   const shouldReduceMotion = useReducedMotion();
@@ -32,20 +33,29 @@ export function Hero() {
           "--gp-paper": "var(--background)",
           "--gp-ink": "var(--foreground)",
           "--gp-field": "var(--primary)",
-          "--gp-foreground": "var(--primary-foreground)",
+          // Not var(--primary-foreground): that flips to near-black in dark
+          // mode (for the light indigo button bg), but the field itself is
+          // always a dark surface here (indigo, then near-black w/ the glow
+          // in dark mode) so the reveal text needs to stay light in both.
+          "--gp-foreground": "oklch(0.98 0.01 260)",
         } as React.CSSProperties
       }
       background={
-        <div
-          aria-hidden="true"
-          className="absolute inset-0"
-          style={{
-            background:
-              "radial-gradient(circle at 20% 15%, color-mix(in oklch, var(--primary), white 22%), transparent 45%), " +
-              "radial-gradient(circle at 82% 78%, color-mix(in oklch, var(--primary), black 20%), transparent 55%), " +
-              "var(--primary)",
-          }}
-        />
+        <>
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 dark:hidden"
+            style={{
+              background:
+                "radial-gradient(circle at 18% 20%, rgba(175, 109, 255, 0.95), transparent 55%), " +
+                "radial-gradient(circle at 80% 22%, rgba(255, 200, 120, 0.85), transparent 55%), " +
+                "radial-gradient(circle at 22% 85%, rgba(255, 90, 170, 0.85), transparent 55%), " +
+                "radial-gradient(circle at 85% 88%, rgba(90, 170, 255, 0.85), transparent 55%), " +
+                "linear-gradient(160deg, #7c3aed 0%, #db2777 55%, #f59e0b 100%)",
+            }}
+          />
+          <RadialGlowBackground strong className="absolute hidden dark:block" />
+        </>
       }
     >
       <motion.div
